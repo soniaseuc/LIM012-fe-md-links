@@ -4,3 +4,7 @@ const suma = (a, b) => {
   return a + b;
 };
 suma(8, 4);
+
+module.exports = {
+  suma,
+};
