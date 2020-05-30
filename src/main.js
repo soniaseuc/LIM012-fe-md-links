@@ -3,7 +3,7 @@ const suma = (a, b) => {
   console.log(b);
   return a + b;
 };
-suma(8, 4);
+suma(8);
 
 module.exports = {
   suma,
