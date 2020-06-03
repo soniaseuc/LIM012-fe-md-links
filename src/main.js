@@ -5,6 +5,12 @@ const suma = (a, b) => {
 };
 suma(8);
 
-module.exports = {
-  suma,
-};
+const os = require('os');
+
+const cpu = os.cpus();
+console.log(cpu);
+
+
+// module.exports = {
+//   suma,
+// };
