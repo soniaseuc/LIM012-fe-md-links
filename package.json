@@ -1,7 +1,7 @@
 {
   "name": "LIM012-fe-md-links",
   "version": "1.0.0",
-  "description": "## Preámbulo",
+  "description": "**libreria que verifica links dentro de archivos.md**",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose --coverage"
@@ -14,7 +14,10 @@
     "npm",
     "markdown"
   ],
-  "author": "sonia seuc sonia.seuc@gmail.com",
+  "author": {
+    "name": "sonia seuc",
+    "email": "sonia.seuc@gmail.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/soniaseuc/LIM012-fe-md-links/issues"
