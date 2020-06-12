@@ -63,6 +63,19 @@ const allFunctionObj = {
     };
     convertAbsolute(route);
   },
+
+  fileIs: (route) => {
+  /* stats.isFile() */
+    //     Returns: <boolean>
+    // Returns true if the fs.Stats object describes a regular file.
+    const isFile = () => {
+      const statsObj = fs.statSync(route);
+      // console.log(statsObj);
+      return statsObj.isFile();
+    };
+    return isFile(route);
+  },
+
 };
 
 // console.log(__dirname); // /home/mina/Documents/LIM012-fe-md-links/src
