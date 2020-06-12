@@ -76,6 +76,15 @@ const allFunctionObj = {
     return isFile(route);
   },
 
+  isDirectory: (route) => {
+    const isDir = () => {
+      const statsObj = fs.statSync(route);
+      // console.log(statsObj);
+      return statsObj.isDirectory();
+    };
+    return isDir(route);
+  },
+
 };
 
 // console.log(__dirname); // /home/mina/Documents/LIM012-fe-md-links/src
