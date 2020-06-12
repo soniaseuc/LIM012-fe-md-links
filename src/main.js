@@ -1,9 +1,8 @@
-const suma = (a, b) => {
-  console.log(a);
-  console.log(b);
-  return a + b;
-};
-suma(8);
+// const suma = (a, b) => {
+//   console.log(a);
+//   console.log(b);
+//   return a + b;
+// };
 
 
 // const os = require('os');
@@ -34,32 +33,39 @@ const path = require('path');
 // The path.isAbsolute() method determines if path is an absolute path.
 // If the given path is a zero-length string, false will be returned.
 
-const linkAbsolute = path.isAbsolute('../test/readme.md'); // false
-const wrongLink = 'Documents/LIM012-fe-md-links/test/tryOutReadme.md';
-console.log(path.isAbsolute('/readme.md')); // true ('/test/readme.md') or ('/readme.md')
-console.log(path.normalize('//read.md'));
-console.log(linkAbsolute);
-console.log(path.parse(wrongLink));
-
-console.log(path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif'));
+// const linkAbsolute = path.isAbsolute('../test/readme.md'); // false
+// const wrongLink = 'Documents/LIM012-fe-md-links/test/tryOutReadme.md';
+// console.log(path.isAbsolute('/readme.md')); // true ('/test/readme.md') or ('/readme.md')
+// console.log(path.normalize('//read.md'));
+// console.log(linkAbsolute);
+// console.log(path.parse(wrongLink));
+// console.log(path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif'));
 // If the current working directory is /home/mina/Documents/LIM012-fe-md-links,
 // this returns '/home/mina/Documents/LIM012-fe-md-links/wwwroot/static_files/gif/image.gif'
 
 
-// Import the filesystem module
-// const fs = require('fs');
-// const path = require('path');
+const allFunctionObj = {
+  absolutePath: (route) => {
+    // if (typeof route === 'string') {
+    //   const resolveRoute = path.resolve(__dirname, route);
+    //   return resolveRoute;
+    // }
+    // return '';
+    const convertAbsolute = () => {
+      // const absoluteRoute = () => path.isAbsolute(route);
+      // console.log(` es absoluta? ${absoluteRoute(route)}`);
+      if (path.isAbsolute(route) === false) {
+      // const normalizeRoute = path.normalize(route);
+        const isAbsolute = path.resolve(route);
+        return console.log(`resolve To Absolute ${isAbsolute}`);
+      }
+      return console.log(`already absolute ${route}`);
+    };
+    convertAbsolute(route);
+  },
+};
 
-// Function to get current filenames
-// in directory with specific extension
-const files = fs.readdirSync('test');
-
-console.log('Filenames with the .md extension:');
-files.forEach((file) => {
-  if (path.extname(file) === '.md') console.log(file);
-});
-
-console.log(__dirname); // /home/mina/Documents/LIM012-fe-md-links/src
+// console.log(__dirname); // /home/mina/Documents/LIM012-fe-md-links/src
 
 /* stats.isDirectory() */
 //     Returns: <boolean>
@@ -73,7 +79,7 @@ console.log(__dirname); // /home/mina/Documents/LIM012-fe-md-links/src
 // callback <Function>
 //     err <Error>
 //     files <string[]> | <Buffer[]> | <fs.Dirent[]>
-// Asynchronous readdir(3). Reads the contents of a directory. 
+// Asynchronous readdir(3). Reads the contents of a directory.
 // The callback gets two arguments (err, files) where files is an array of the names of the files
 // in the directory excluding '.' and '..'. The optional options argument can be a string specifying
 // an encoding, or an object with an encoding property specifying the character encoding to use for
@@ -81,9 +87,6 @@ console.log(__dirname); // /home/mina/Documents/LIM012-fe-md-links/src
 // will be passed as Buffer objects.
 // If options.withFileTypes is set to true, the files array will contain fs.Dirent objects.
 
-/* stats.isFile() */
-//     Returns: <boolean>
-// Returns true if the fs.Stats object describes a regular file.
 
 /* fs.readFile(path[, options], callback) */
 //     path <string> | <Buffer> | <URL> | <integer> filename or file descriptor
@@ -97,8 +100,9 @@ console.log(__dirname); // /home/mina/Documents/LIM012-fe-md-links/src
 
 module.exports = {
   path,
-  files,
-  // fs,
+  fs,
   // suma,
+  allFunctionObj,
+  // fs,
   // os,
 };
