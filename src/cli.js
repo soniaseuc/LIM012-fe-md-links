@@ -8,6 +8,7 @@ const api = (links) => {
     console.log(`Path is file: ${mdLinkFc.allFunctionObj.fileIs(links)}`);
   } else if (mdLinkFc.allFunctionObj.isDirectory(links) === true) {
     console.log(`Path is directory: ${mdLinkFc.allFunctionObj.isDirectory(links)}`);
+    mdLinkFc.allFunctionObj.mdExtension(links); // array de strings
   }
 };
 

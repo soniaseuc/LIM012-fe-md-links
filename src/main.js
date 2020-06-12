@@ -85,6 +85,20 @@ const allFunctionObj = {
     return isDir(route);
   },
 
+  mdExtension: (route) => {
+    // Function to get current filenames
+    // in directory with specific extension
+    const files = fs.readdirSync(route);
+
+    files.forEach((file) => {
+      if (path.extname(file) === '.md') {
+        console.log(`Filenames with the .md extension: ${file}`);
+      } else {
+        console.log(`Filenames without .md extension: ${file}`);
+      }
+    });
+  },
+
 };
 
 // console.log(__dirname); // /home/mina/Documents/LIM012-fe-md-links/src
