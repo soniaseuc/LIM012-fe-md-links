@@ -1,3 +1,7 @@
+const marked = require('marked');
+
+const renderer = new marked.Renderer();
+
 // const suma = (a, b) => {
 //   console.log(a);
 //   console.log(b);
@@ -33,73 +37,87 @@ const path = require('path');
 // The path.isAbsolute() method determines if path is an absolute path.
 // If the given path is a zero-length string, false will be returned.
 
-// const linkAbsolute = path.isAbsolute('../test/readme.md'); // false
-// const wrongLink = 'Documents/LIM012-fe-md-links/test/tryOutReadme.md';
-// console.log(path.isAbsolute('/readme.md')); // true ('/test/readme.md') or ('/readme.md')
-// console.log(path.normalize('//read.md'));
-// console.log(linkAbsolute);
-// console.log(path.parse(wrongLink));
-// console.log(path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif'));
-// If the current working directory is /home/mina/Documents/LIM012-fe-md-links,
-// this returns '/home/mina/Documents/LIM012-fe-md-links/wwwroot/static_files/gif/image.gif'
+// const fileExt = (route) => path.extname(route);
 
+const pathExtname = (file) => {
+  const extName = path.extname(file) === '.md';
+  return extName;
+};
 
 const allFunctionObj = {
   absolutePath: (route) => {
-    // if (typeof route === 'string') {
-    //   const resolveRoute = path.resolve(__dirname, route);
-    //   return resolveRoute;
-    // }
-    // return '';
-    const convertAbsolute = () => {
-      // const absoluteRoute = () => path.isAbsolute(route);
-      // console.log(` es absoluta? ${absoluteRoute(route)}`);
-      if (path.isAbsolute(route) === false) {
-      // const normalizeRoute = path.normalize(route);
-        const isAbsolute = path.resolve(route);
-        return console.log(`resolve To Absolute ${isAbsolute}`);
-      }
-      return console.log(`already absolute ${route}`);
-    };
-    convertAbsolute(route);
+    if (path.isAbsolute(route) === false) {
+      const isAbsolute = path.resolve(route);
+      console.log(`resolve To Absolute ${isAbsolute}`);
+      return isAbsolute;
+    }
+    console.log(`already absolute ${route}`);
+    return route;
   },
 
   fileIs: (route) => {
-  /* stats.isFile() */
-    //     Returns: <boolean>
-    // Returns true if the fs.Stats object describes a regular file.
-    const isFile = () => {
-      const statsObj = fs.statSync(route);
-      // console.log(statsObj);
-      return statsObj.isFile();
-    };
-    return isFile(route);
+    const statsObj = fs.statSync(route);
+    return statsObj.isFile();
   },
 
   isDirectory: (route) => {
-    const isDir = () => {
-      const statsObj = fs.statSync(route);
-      // console.log(statsObj);
-      return statsObj.isDirectory();
-    };
-    return isDir(route);
+    const statsObj = fs.statSync(route);
+    return statsObj.isDirectory();
   },
 
-  mdExtension: (route) => {
-    // Function to get current filenames
-    // in directory with specific extension
-    const files = fs.readdirSync(route);
+  // recursive function that search inside each directory
+  // and store all the md. extension files in an array
+  getAllFilesArr: (route) => {
+    const arrayFiles = [];
+    if (pathExtname(route) === true) {
+      arrayFiles.push(route);
+    } else if (fs.statSync(route).isDirectory()) {
+      fs.readdirSync(route).forEach((file) => {
+        const filepath = path.join(route, file);
+        const filePushInArr = fs.statSync(route)
+          .isFile() ? arrayFiles.push(route) : allFunctionObj.getAllFilesArr(filepath);
+        arrayFiles.push(filePushInArr.flat());
+      });
+    }
+    return arrayFiles;
+  },
 
+  mdExtensionDir: (route) => {
+    // Function to get current filenames in directory with specific extension
+    const files = fs.readdirSync(route);
+    const arrayFileNameMd = [];
     files.forEach((file) => {
-      if (path.extname(file) === '.md') {
-        console.log(`Filenames with the .md extension: ${file}`);
-      } else {
-        console.log(`Filenames without .md extension: ${file}`);
+      if (pathExtname(file) === true) {
+        arrayFileNameMd.push(file);
       }
     });
+    return arrayFileNameMd;
+  },
+
+  readArrayMdExtension: (ArrayMd) => {
+    // const elemName = path.basename(arrayMd);
+    // console.log(arrayMd);
+    // console.log(elemName);
+
+    const linksInsideArr = [];
+    const insideFile = (fileMd) => fs.readFileSync(fileMd, 'utf8');
+    // const insideFile = fs.readFile(elemName, 'utf8', (err, elem) => {
+    console.log(insideFile(ArrayMd));
+    //   if (err) {
+    //     console.error(err);
+    //     process.exit(err.code);
+    //     return;
+    //   }
+    //   const html = marked(elem);
+    //   console.log(html);
+
+    return linksInsideArr;
+
+    // });
   },
 
 };
+
 
 // console.log(__dirname); // /home/mina/Documents/LIM012-fe-md-links/src
 
@@ -139,6 +157,7 @@ module.exports = {
   fs,
   // suma,
   allFunctionObj,
+  pathExtname,
   // fs,
   // os,
 };

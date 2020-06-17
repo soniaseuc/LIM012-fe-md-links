@@ -2,15 +2,35 @@ const mdLinkFc = require('./main.js');
 
 const api = (links) => {
   // console.log(mdLinkFc.suma(8, 4));
-  mdLinkFc.allFunctionObj.absolutePath(links);
-  // if (typeof links === 'string') {
-  if (mdLinkFc.allFunctionObj.fileIs(links) === true) {
-    console.log(`Path is file: ${mdLinkFc.allFunctionObj.fileIs(links)}`);
-  } else if (mdLinkFc.allFunctionObj.isDirectory(links) === true) {
-    console.log(`Path is directory: ${mdLinkFc.allFunctionObj.isDirectory(links)}`);
-    mdLinkFc.allFunctionObj.mdExtension(links); // array de strings
-  }
+  const apiFc = mdLinkFc.allFunctionObj;
+  const absolutePath = apiFc.absolutePath(links);
+  const arrayGetAllFiles = apiFc.getAllFilesArr(absolutePath);
+  const flatArrMdFile = arrayGetAllFiles.flat();
+  console.log(flatArrMdFile);
+  const readInsideMdFiles = apiFc.readArrayMdExtension(flatArrMdFile);
+  console.log(readInsideMdFiles);
 };
 
-api('./README.md');
+// api('./README.md');
 api('test');
+
+
+// mdLinkFc('./dir/prueba.md')
+//   .then((links) => {
+//     return [{ href, text, file }];
+//   })
+//   .catch(console.error);
+
+// mdLinkFc('./dir/prueba.md', { validate: true })
+//   .then((links) => {
+//     return [{
+//       href, text, file, status, ok,
+//     }];
+//   })
+//   .catch(console.error);
+
+// mdLinkFc('./some/dir')
+//   .then((links) => {
+//     return [{ href, text, file }];
+//   })
+//   .catch(console.error);
