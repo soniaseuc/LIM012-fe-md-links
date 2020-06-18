@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest --verbose --coverage",
-    "start": "node ./src/cli.js"
+    "start": "node ./src/mdLinks.js"
   },
   "repository": {
     "type": "git",

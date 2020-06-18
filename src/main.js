@@ -1,3 +1,5 @@
+
+// Create reference instance
 const marked = require('marked');
 
 const renderer = new marked.Renderer();
@@ -94,29 +96,87 @@ const allFunctionObj = {
     return arrayFileNameMd;
   },
 
+  readLinksInsideFiles: (fileMd) => {
+    const linksArr = [];
+    const arrayFiles = [fileMd];
+    const regex = /(?=\[).+?(\])/g;
+    arrayFiles.forEach((route) => {
+      const fileRead = fs.readFileSync(route, 'utf8');
+      renderer.link = (linkPath) => {
+        const textLink = fileRead.match(regex);
+        textLink.map((text) => {
+          const objLink = {
+            href: linkPath,
+            text,
+            file: route,
+          };
+          return linksArr.push(objLink);
+        });
+      };
+      marked(fileRead, { renderer });
+    });
+    // console.log(linksArr);
+    return linksArr;
+  },
+
   readArrayMdExtension: (ArrayMd) => {
-    // const elemName = path.basename(arrayMd);
-    // console.log(arrayMd);
-    // console.log(elemName);
-
-    const linksInsideArr = [];
-    const insideFile = (fileMd) => fs.readFileSync(fileMd, 'utf8');
-    // const insideFile = fs.readFile(elemName, 'utf8', (err, elem) => {
-    console.log(insideFile(ArrayMd));
-    //   if (err) {
-    //     console.error(err);
-    //     process.exit(err.code);
-    //     return;
-    //   }
-    //   const html = marked(elem);
-    //   console.log(html);
-
-    return linksInsideArr;
-
-    // });
+    const fileslinkArr = [];
+    ArrayMd.forEach((filePath) => {
+      fileslinkArr.push(allFunctionObj.readLinksInsideFiles(filePath));
+    });
+    return fileslinkArr;
   },
 
 };
+
+module.exports = {
+  path,
+  fs,
+  // suma,
+  allFunctionObj,
+  pathExtname,
+  // fs,
+  // os,
+};
+
+/** *************************************************** */
+// Create reference instance
+// const marked = require('marked');
+
+// Override function
+// const renderer = {
+//   heading(text, level) {
+//     const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+
+//     return `
+//             <h${level}>
+//               <a name="${escapedText}" class="anchor" href="#${escapedText}">
+//                 <span class="header-link"></span>
+//               </a>
+//               ${text}
+//             </h${level}>`;
+//   }
+// };
+
+// marked.use({ renderer });
+
+// // Run marked
+// console.log(marked('# heading+'));
+
+/** ***************************************** */
+
+// link(href, title, text) {
+//   href = cleanUrl(this.options.sanitize, this.options.baseUrl, href);
+//   if (href === null) {
+//     return text;
+//   }
+//   let out = '<a href="' + escape(href) + '"';
+//   if (title) {
+//     out += ' title="' + title + '"';
+//   }
+//   out += '>' + text + '</a>';
+//   return out;
+// }
 
 
 // console.log(__dirname); // /home/mina/Documents/LIM012-fe-md-links/src
@@ -151,13 +211,3 @@ const allFunctionObj = {
 //         err <Error>
 //         data <string> | <Buffer>
 // Asynchronously reads the entire contents of a file.
-
-module.exports = {
-  path,
-  fs,
-  // suma,
-  allFunctionObj,
-  pathExtname,
-  // fs,
-  // os,
-};
