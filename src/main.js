@@ -99,24 +99,28 @@ const allFunctionObj = {
   readLinksInsideFiles: (fileMd) => {
     const linksArr = [];
     const arrayFiles = [fileMd];
-    const regex = /(?=\[).+?(\])/g;
+    // const regexHref = /\((.+)\)/g;
+    // const regex = /(?=\[).+?(\])/g;
     arrayFiles.forEach((route) => {
       const fileRead = fs.readFileSync(route, 'utf8');
-      renderer.link = (linkPath) => {
-        const textLink = fileRead.match(regex);
-        textLink.map((text) => {
-          const objLink = {
-            href: linkPath,
-            text,
-            file: route,
-          };
-          return linksArr.push(objLink);
-        });
+      // const linkPath = fileRead.match(regexHref);
+      // const textLink = fileRead.match(regex);
+      // const sliceArrTextLink = textLink.slice(0, 1);
+      // console.log('textLink:', textLink);
+      // console.log('sliceArrTextLink:', sliceArrTextLink);
+      renderer.link = (linkPath, title, text) => {
+        // textLink.map((text, ) => {
+        const objLink = {
+          href: linkPath,
+          text,
+          file: route,
+        };
+        return linksArr.push(objLink);
+        // });
       };
       marked(fileRead, { renderer });
     });
-    // console.log(linksArr);
-    return linksArr;
+    return linksArr.flat();
   },
 
   readArrayMdExtension: (ArrayMd) => {
@@ -124,7 +128,7 @@ const allFunctionObj = {
     ArrayMd.forEach((filePath) => {
       fileslinkArr.push(allFunctionObj.readLinksInsideFiles(filePath));
     });
-    return fileslinkArr;
+    return fileslinkArr.flat();
   },
 
 };
