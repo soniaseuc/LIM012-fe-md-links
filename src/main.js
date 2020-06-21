@@ -98,7 +98,7 @@ const allFunctionObj = {
 
   readLinksInsideFiles: (fileMd) => {
     const linksArr = [];
-    const arrayFiles = [fileMd];
+    const arrayFiles = allFunctionObj.getAllFilesArr(fileMd);
     // const regexHref = /\((.+)\)/g;
     // const regex = /(?=\[).+?(\])/g;
     arrayFiles.forEach((route) => {
