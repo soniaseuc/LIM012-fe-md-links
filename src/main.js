@@ -4,6 +4,9 @@ const marked = require('marked');
 
 const renderer = new marked.Renderer();
 
+// Recursion is a programming term that means calling a function from itself.
+// When a function calls itself, that's called a recursion step.
+
 // const suma = (a, b) => {
 //   console.log(a);
 //   console.log(b);
@@ -99,24 +102,15 @@ const allFunctionObj = {
   readLinksInsideFiles: (fileMd) => {
     const linksArr = [];
     const arrayFiles = allFunctionObj.getAllFilesArr(fileMd);
-    // const regexHref = /\((.+)\)/g;
-    // const regex = /(?=\[).+?(\])/g;
     arrayFiles.forEach((route) => {
       const fileRead = fs.readFileSync(route, 'utf8');
-      // const linkPath = fileRead.match(regexHref);
-      // const textLink = fileRead.match(regex);
-      // const sliceArrTextLink = textLink.slice(0, 1);
-      // console.log('textLink:', textLink);
-      // console.log('sliceArrTextLink:', sliceArrTextLink);
       renderer.link = (linkPath, title, text) => {
-        // textLink.map((text, ) => {
         const objLink = {
           href: linkPath,
           text,
           file: route,
         };
         return linksArr.push(objLink);
-        // });
       };
       marked(fileRead, { renderer });
     });
