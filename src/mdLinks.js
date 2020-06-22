@@ -30,7 +30,7 @@ const api = (links, options) => new Promise((resolve, reject) => {
   }
 });
 
-// api('./README.md', { validate: true });
+// api('./README.md', { });
 api('test', { validate: true });
 // api('test');
 

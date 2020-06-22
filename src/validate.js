@@ -17,9 +17,9 @@ const validate = (LinksArr) => {
         }
         return object;
       })
-      .catch(() => {
+      .catch((e) => {
         const error = {
-          status: 'ERROR',
+          status: e.message,
           statusText: 'fail',
         };
         return error;
