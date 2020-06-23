@@ -54,3 +54,7 @@ api('test', { validate: true });
 //     return [{ href, text, file }];
 //   })
 //   .catch(console.error);
+
+module.exports = {
+  api,
+};
