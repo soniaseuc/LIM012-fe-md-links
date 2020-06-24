@@ -53,10 +53,10 @@ const allFunctionObj = {
   absolutePath: (route) => {
     if (path.isAbsolute(route) === false) {
       const isAbsolute = path.resolve(route);
-      console.log(`resolve To Absolute ${isAbsolute}`);
+      // console.log(`resolve To Absolute ${isAbsolute}`);
       return isAbsolute;
     }
-    console.log(`already absolute ${route}`);
+    // console.log(`already absolute ${route}`);
     return route;
   },
 
@@ -136,76 +136,3 @@ module.exports = {
   // fs,
   // os,
 };
-
-/** *************************************************** */
-// Create reference instance
-// const marked = require('marked');
-
-// Override function
-// const renderer = {
-//   heading(text, level) {
-//     const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
-
-//     return `
-//             <h${level}>
-//               <a name="${escapedText}" class="anchor" href="#${escapedText}">
-//                 <span class="header-link"></span>
-//               </a>
-//               ${text}
-//             </h${level}>`;
-//   }
-// };
-
-// marked.use({ renderer });
-
-// // Run marked
-// console.log(marked('# heading+'));
-
-/** ***************************************** */
-
-// link(href, title, text) {
-//   href = cleanUrl(this.options.sanitize, this.options.baseUrl, href);
-//   if (href === null) {
-//     return text;
-//   }
-//   let out = '<a href="' + escape(href) + '"';
-//   if (title) {
-//     out += ' title="' + title + '"';
-//   }
-//   out += '>' + text + '</a>';
-//   return out;
-// }
-
-
-// console.log(__dirname); // /home/mina/Documents/LIM012-fe-md-links/src
-
-/* stats.isDirectory() */
-//     Returns: <boolean>
-// Returns true if the fs.Stats object describes a file system directory.
-
-/* fs.readdir(path[, options], callback) */
-// path <string> | <Buffer> | <URL>
-// options <string> | <Object>
-//     encoding <string> Default: 'utf8'
-//     withFileTypes <boolean> Default: false
-// callback <Function>
-//     err <Error>
-//     files <string[]> | <Buffer[]> | <fs.Dirent[]>
-// Asynchronous readdir(3). Reads the contents of a directory.
-// The callback gets two arguments (err, files) where files is an array of the names of the files
-// in the directory excluding '.' and '..'. The optional options argument can be a string specifying
-// an encoding, or an object with an encoding property specifying the character encoding to use for
-// the filenames passed to the callback. If the encoding is set to 'buffer', the filenames returned
-// will be passed as Buffer objects.
-// If options.withFileTypes is set to true, the files array will contain fs.Dirent objects.
-
-
-/* fs.readFile(path[, options], callback) */
-//     path <string> | <Buffer> | <URL> | <integer> filename or file descriptor
-//     options <Object> | <string>
-//         encoding <string> | <null> Default: null
-//         flag <string> See support of file system flags. Default: 'r'.
-//     callback <Function>
-//         err <Error>
-//         data <string> | <Buffer>
-// Asynchronously reads the entire contents of a file.
