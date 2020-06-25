@@ -9,7 +9,6 @@ const validate = myArgs.includes('--validate'); // booloeano
 const statsFlag = myArgs.includes('--stats'); // boolean
 // console.log(statsFlag);
 
-
 // console.log(process.argv);
 // console.log('myArgs: ', myArgs);
 

@@ -1,7 +1,4 @@
 const fetch = require('node-fetch');
-const { api } = require('./mdLinks');
-const { allFunctionObj } = require('./main.js');
-
 
 const validate = (LinksArr) => {
   const arrPromis = LinksArr.map((link) => {
@@ -29,36 +26,11 @@ const stats = (arrayLinks) => {
   const totalLinks = [];
   arrayLinks.forEach((link) => totalLinks.push(link.href));
   const LinkUnique = new Set(arrayLinks);
-  // .map((element) => element.href));
   const totalUnique = `
   Total :  ${totalLinks.length}
   Unique:  ${LinkUnique.size} `;
   return console.log(totalUnique);
 };
-
-const example = ['https://es.wikipedia.org/wiki/Markdown',
-  'http://www.google.com', 'https://developers.google.com/v8/',
-  'https://www.w3schools.com/', 'https://developers.google.com/v8/',
-  'https://github/ssssss'];
-
-const ex = [
-  {
-    href: 'https://github.com/merunga/pildora-recursion',
-    text: 'Pill de recursión - repositorio',
-    file: '/home/mina/Documents/LIM012-fe-md-links/README.md',
-    status: 200,
-    statusText: 'OK',
-  },
-  {
-    href: 'https://github.com/',
-    text: 'Pill de recursión - repositorio',
-    file: '/home/mina/Documents/LIM012-fe-md-links/README.md',
-    status: 404,
-    statusText: 'fail',
-  },
-];
-
-// stats(example);
 
 const statsValidate = (links) => {
   const totalLinks = links;
@@ -72,10 +44,34 @@ const statsValidate = (links) => {
   return console.log(valiStat);
 };
 
-// statsValidate(ex);
-
 module.exports = {
   validate,
   stats,
   statsValidate,
 };
+
+// const example = ['https://es.wikipedia.org/wiki/Markdown',
+//   'http://www.google.com', 'https://developers.google.com/v8/',
+//   'https://www.w3schools.com/', 'https://developers.google.com/v8/',
+//   'https://github/ssssss'];
+
+// const ex = [
+//   {
+//     href: 'https://github.com/merunga/pildora-recursion',
+//     text: 'Pill de recursión - repositorio',
+//     file: '/home/mina/Documents/LIM012-fe-md-links/README.md',
+//     status: 200,
+//     statusText: 'OK',
+//   },
+//   {
+//     href: 'https://github.com/',
+//     text: 'Pill de recursión - repositorio',
+//     file: '/home/mina/Documents/LIM012-fe-md-links/README.md',
+//     status: 404,
+//     statusText: 'fail',
+//   },
+// ];
+
+// stats(example);
+
+// statsValidate(ex);
