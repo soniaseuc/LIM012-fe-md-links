@@ -1,30 +1,37 @@
+#!/usr/bin/env node
+
 const process = require('process');
 // const { argv } = require('process');
-const { api } = require('./mdLinks');
-const { statsValidate, stats } = require('./validate.js');
+const {
+  api,
+} = require('./mdLinks.js');
 
+const {
+  statsValidate,
+  stats,
+} = require('./validate.js');
+
+// Grab provided args
+// const [,, ...args] = process.argv;
+// console.log(`Hello ${args}`);
+
+const route = process.argv[2];
 const myArgs = process.argv.slice(2);
 // console.log(myArgs.includes('--validate')); //booleano
 const validate = myArgs.includes('--validate'); // booloeano
 const statsFlag = myArgs.includes('--stats'); // boolean
 // console.log(statsFlag);
 
-// console.log(process.argv);
-// console.log('myArgs: ', myArgs);
-
 if (statsFlag) {
-  api('./test', { validate })
+  api(route, { validate })
     .then((result) => {
-      // console.log('estoy aqui');
-
       if (validate) statsValidate(result);
       else stats(result);
     });
 } else {
-  api('./test', { validate })
+  api(route, { validate })
     .then(console.log);
 }
-
 
 // The process.argv property returns an array containing the command line arguments passed when the
 // Node.js process was launched.The first element will be process.execPath. See process.argv0 if

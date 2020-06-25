@@ -2,7 +2,7 @@
   "name": "LIM012-fe-md-links",
   "version": "1.0.0",
   "description": "**libreria que verifica links dentro de archivos.md**",
-  "main": "src/index.js",
+  "main": "src/cli.js",
   "scripts": {
     "test": "jest --verbose --coverage",
     "start": "node ./src/cli.js"
@@ -13,7 +13,9 @@
   },
   "keywords": [
     "npm",
-    "markdown"
+    "markdown",
+    "marked",
+    "node-fetch"
   ],
   "author": {
     "name": "sonia seuc",
@@ -21,24 +23,26 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/soniaseuc/LIM012-fe-md-links/issues"
+    "url": "https://github.com/soniaseuc/LIM012-fe-md-links/issues",
+    "email": "sonia.seuc@gmail.com"
   },
   "homepage": "https://github.com/soniaseuc/LIM012-fe-md-links#readme",
+  "bin": {
+    "md-links": "./src/cli.js"
+  },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/plugin-transform-modules-commonjs": "^7.10.1",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^26.0.1",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jest": "^23.13.2",
-    "fetch-mock-jest": "^1.3.0",
-    "jest": "^26.0.1"
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jest": "^23.17.1",
+    "eslint-plugin-node": "^11.1.0",
+    "jest": "^26.1.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "fetch-mock": "^9.10.3",
+    "fetch-mock-jest": "^1.3.0",
     "marked": "^1.1.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "semver": "^7.3.2"
   }
 }
