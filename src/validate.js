@@ -25,7 +25,7 @@ const validate = (LinksArr) => {
 const stats = (arrayLinks) => {
   const totalLinks = [];
   arrayLinks.forEach((link) => totalLinks.push(link.href));
-  const LinkUnique = new Set(arrayLinks);
+  const LinkUnique = new Set(arrayLinks.map((element) => element.href));
   const totalUnique = `
   Total :  ${totalLinks.length}
   Unique:  ${LinkUnique.size} `;
@@ -34,7 +34,7 @@ const stats = (arrayLinks) => {
 
 const statsValidate = (links) => {
   const totalLinks = links;
-  const unique = new Set(links);
+  const unique = new Set(links.map((element) => element.href));
   const broke = links.filter((link) => link.status !== 200);
   const valiStat = `
   Total: ${totalLinks.length}
