@@ -1,7 +1,8 @@
 const fetch = require('node-fetch');
 
-const validate = (LinksArr) => {
-  const arrPromis = LinksArr.map((link) => {
+const validate = (linksArr) => {
+  const links = linksArr;
+  const arrPromis = links.map((link) => {
     const linksObj = link;
     const fetchPromis = fetch(linksObj.href);
     return fetchPromis

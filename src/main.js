@@ -1,4 +1,3 @@
-
 // Create reference instance
 const marked = require('marked');
 
@@ -13,11 +12,9 @@ const renderer = new marked.Renderer();
 //   return a + b;
 // };
 
-
 // const os = require('os');
 // const cpu = os.cpus();
 // console.log(cpu);
-
 
 // module.exports = {
 //   suma,
@@ -26,10 +23,8 @@ const renderer = new marked.Renderer();
 // file system
 const fs = require('fs');
 
-
 //  The fs.readFile() method is used to read files on your computer
 // fs.readFile();
-
 
 // trayectoria
 const path = require('path');
@@ -84,20 +79,21 @@ const allFunctionObj = {
         arrayFiles.push(filePushInArr.flat());
       });
     }
+    // console.log(arrayFiles);
     return arrayFiles;
   },
 
-  mdExtensionDir: (route) => {
-    // Function to get current filenames in directory with specific extension
-    const files = fs.readdirSync(route);
-    const arrayFileNameMd = [];
-    files.forEach((file) => {
-      if (pathExtname(file) === true) {
-        arrayFileNameMd.push(file);
-      }
-    });
-    return arrayFileNameMd;
-  },
+  // mdExtensionDir: (route) => {
+  //   // Function to get current filenames in directory with specific extension
+  //   const files = fs.readdirSync(route);
+  //   const arrayFileNameMd = [];
+  //   files.forEach((file) => {
+  //     if (pathExtname(file) === true) {
+  //       arrayFileNameMd.push(file);
+  //     }
+  //   });
+  //   return arrayFileNameMd;
+  // },
 
   readLinksInsideFiles: (fileMd) => {
     const linksArr = [];
