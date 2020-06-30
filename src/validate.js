@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
-const validate = (linksArr) => {
-  const links = linksArr;
+const validate = (linksArrObj) => {
+  const links = linksArrObj;
   const arrPromis = links.map((link) => {
     const linksObj = link;
     const fetchPromis = fetch(linksObj.href);
@@ -16,7 +16,6 @@ const validate = (linksArr) => {
       .catch((err) => {
         linksObj.status = err.status ? err.status : 'unknown';
         linksObj.statusText = err.message ? err.message : 'Fail';
-
         return linksObj;
       });
   });
@@ -28,9 +27,9 @@ const stats = (arrayLinks) => {
   arrayLinks.forEach((link) => totalLinks.push(link.href));
   const LinkUnique = new Set(arrayLinks.map((element) => element.href));
   const totalUnique = `
-  Total :  ${totalLinks.length}
-  Unique:  ${LinkUnique.size} `;
-  return console.log(totalUnique);
+  Total : ${totalLinks.length}
+  Unique: ${LinkUnique.size}`;
+  return totalUnique;
 };
 
 const statsValidate = (links) => {
@@ -38,11 +37,10 @@ const statsValidate = (links) => {
   const unique = new Set(links.map((element) => element.href));
   const broke = links.filter((link) => link.status !== 200);
   const valiStat = `
-  Total: ${totalLinks.length}
+  Total : ${totalLinks.length}
   Unique: ${unique.size}
-  Broken: ${broke.length}
-  `;
-  return console.log(valiStat);
+  Broken: ${broke.length}`;
+  return valiStat;
 };
 
 module.exports = {

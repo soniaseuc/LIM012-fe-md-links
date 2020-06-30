@@ -1,5 +1,5 @@
 const mdLinkFc = require('./main.js');
-const validate = require('./validate.js');
+const { validate } = require('./validate.js');
 const { fs } = require('./main.js');
 
 const api = (links, options) => new Promise((resolve, reject) => {
@@ -8,10 +8,11 @@ const api = (links, options) => new Promise((resolve, reject) => {
   const arrayGetAllFiles = apiFc.getAllFilesArr(absolutePath);
   const flatArrMdFile = arrayGetAllFiles.flat();
   const readInsideMdFiles = apiFc.readArrayMdExtension(flatArrMdFile);
+  // console.log(readInsideMdFiles);
   if (fs.existsSync(absolutePath)) {
     if (options !== undefined) {
       if (options.validate) {
-        validate.validate(readInsideMdFiles)
+        validate(readInsideMdFiles)
           .then((status) => {
             resolve(status);
           })

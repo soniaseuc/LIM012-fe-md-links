@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">90.63% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/32</span>
+                <span class='fraction'>29/32</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">89.29% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>28/28</span>
+                <span class='fraction'>25/28</span>
             </div>
         
             
@@ -133,31 +133,28 @@
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
 <a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -175,7 +172,6 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -215,24 +211,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const fetch = require('node-fetch');
 &nbsp;
-const validate = (linksArr) =&gt; {
-  const links = linksArr;
+const validate = (linksArrObj) =&gt; {
+  const links = linksArrObj;
   const arrPromis = links.map((link) =&gt; {
     const linksObj = link;
     const fetchPromis = fetch(linksObj.href);
     return fetchPromis
       .then((res) =&gt; {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (res.ok) {
+        if (res.ok) {
           linksObj.status = res.status;
           linksObj.statusText = res.statusText;
         }
         return linksObj;
       })
-      .catch((err) =&gt; {
-        linksObj.status = err.status ? <span class="branch-0 cbranch-no" title="branch not covered" >err.status </span>: 'unknown';
-        linksObj.statusText = err.message ? err.message : <span class="branch-1 cbranch-no" title="branch not covered" >'Fail';</span>
-&nbsp;
-        return linksObj;
+      .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
+<span class="cstat-no" title="statement not covered" >        linksObj.status = err.status ? err.status : 'unknown';</span>
+<span class="cstat-no" title="statement not covered" >        linksObj.statusText = err.message ? err.message : 'Fail';</span>
+<span class="cstat-no" title="statement not covered" >        return linksObj;</span>
       });
   });
   return Promise.all(arrPromis);
@@ -243,9 +238,9 @@ const stats = (arrayLinks) =&gt; {
   arrayLinks.forEach((link) =&gt; totalLinks.push(link.href));
   const LinkUnique = new Set(arrayLinks.map((element) =&gt; element.href));
   const totalUnique = `
-  Total :  ${totalLinks.length}
-  Unique:  ${LinkUnique.size} `;
-  return console.log(totalUnique);
+  Total : ${totalLinks.length}
+  Unique: ${LinkUnique.size}`;
+  return totalUnique;
 };
 &nbsp;
 const statsValidate = (links) =&gt; {
@@ -253,11 +248,10 @@ const statsValidate = (links) =&gt; {
   const unique = new Set(links.map((element) =&gt; element.href));
   const broke = links.filter((link) =&gt; link.status !== 200);
   const valiStat = `
-  Total: ${totalLinks.length}
+  Total : ${totalLinks.length}
   Unique: ${unique.size}
-  Broken: ${broke.length}
-  `;
-  return console.log(valiStat);
+  Broken: ${broke.length}`;
+  return valiStat;
 };
 &nbsp;
 module.exports = {
@@ -298,7 +292,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jun 29 2020 13:11:40 GMT-0500 (GMT-05:00)
+                at Tue Jun 30 2020 12:10:48 GMT-0500 (GMT-05:00)
             </div>
         </div>
         <script src="prettify.js"></script>

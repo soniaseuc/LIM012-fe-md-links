@@ -13,7 +13,7 @@ const whenValid = [
     text: 'Link de youtube',
     file: '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md',
     status: 'unknown',
-    statusText: 'Only absolute URLs are supported',
+    statusText: 'fail',
   },
   {
     href: 'https://www.google.com',
@@ -61,7 +61,6 @@ describe('a function that search for .md files and read links inside the files',
   it('should return the links not validated (only 3 properties)', () => {
     expect(api.api('./test/tryOutReadme.md')).resolves.toEqual(validFalse);
   });
-
   it('should validate the links and present 5 properties', (done) => api.api('./test/tryOutReadme.md', { validate: true })
     .then((response) => {
       expect(response).toEqual(whenValid);

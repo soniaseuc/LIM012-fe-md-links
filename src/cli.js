@@ -25,8 +25,8 @@ const statsFlag = myArgs.includes('--stats'); // boolean
 if (statsFlag) {
   api(route, { validate })
     .then((result) => {
-      if (validate) statsValidate(result);
-      else stats(result);
+      if (validate) console.log(statsValidate(result));
+      else console.log(stats(result));
     });
 } else {
   api(route, { validate })

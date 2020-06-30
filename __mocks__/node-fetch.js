@@ -8,8 +8,9 @@ Object.assign(fetchMock.config, nodeFetch, {
 // return fetchMock;
 // });
 fetchMock
-  .mock('https://www.google.com', 200)
-  .mock('www.fb.com', 404);
+  .mock('www.youtube.com', 404)
+  .mock('*', 200);
+
 // The sandbox() method returns a function that can be used as a drop-in replacement for fetch.
 // Pass this into your mocking library of choice. The function returned by sandbox() has all the
 // methods of fetch-mock exposed on it, e.g.

@@ -15,15 +15,15 @@ const main = require('../src/main.js');
 //   expect(result).toBe(5);
 // });
 
-// const absolute = '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md';
-// const relative = '/test/tryOutReadme.md';
+const absolute = '/home/mina/Documents/LIM012-fe-md-links/test';
+const relative = 'test';
 
 describe('a given path is resolve to absolute', () => {
   test('should be a function', () => {
     expect(typeof main.allFunctionObj.absolutePath).toBe('function');
   });
   it('should resolve to absolute when path is relative', () => {
-    expect(main.allFunctionObj.absolutePath('./test/tryOutReadme.md').toBe('/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md'));
+    expect(main.allFunctionObj.absolutePath(relative)).toBe(absolute);
   });
 });
 
