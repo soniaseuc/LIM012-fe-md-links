@@ -28,9 +28,22 @@ if (statsFlag) {
       if (validate) console.log(statsValidate(result));
       else console.log(stats(result));
     });
-} else {
+} else if (validate) {
   api(route, { validate })
-    .then(console.log);
+    .then((res) => {
+      res.forEach((element) => {
+        const result = `${element.file} ${element.href} ${element.statusText} ${element.status} ${element.text}`;
+        return console.log(result);
+      });
+    });
+} else {
+  api(route)
+    .then((res) => {
+      res.forEach((element) => {
+        const result = `${element.file} ${element.href} ${element.text}`;
+        return console.log(result);
+      });
+    });
 }
 
 // The process.argv property returns an array containing the command line arguments passed when the
