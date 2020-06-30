@@ -8,7 +8,9 @@ Object.assign(fetchMock.config, nodeFetch, {
 // return fetchMock;
 // });
 fetchMock
-  .mock('www.youtube.com', 404)
+  .mock('www.youtube.com', () => {
+    throw new Error('error');
+  })
   .mock('*', 200);
 
 // The sandbox() method returns a function that can be used as a drop-in replacement for fetch.

@@ -13,7 +13,7 @@ const whenValid = [
     text: 'Link de youtube',
     file: '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md',
     status: 'unknown',
-    statusText: 'fail',
+    statusText: 'error',
   },
   {
     href: 'https://www.google.com',
