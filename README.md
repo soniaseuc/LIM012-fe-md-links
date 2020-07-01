@@ -7,14 +7,14 @@
 - La librería esta implementada en JavaScript para ser ejecutada con
 Node.js.
 
-- El modulo es instalable via `npm install <github-user>/md-links`. Este
+- El modulo es instalable via `npm install <soniaseuc>/LIM012-fe-md-links`. Este
 módulo incluye tanto un _ejecutable_ a invocar en la línea de
 comando como una interfaz que podemos importar con `require` para usarlo
 programáticamente.
 
 Necesidad del usuario:
 
-- Instalar la libreria via `npm install --global <github-user>/md-links`
+- Instalar la libreria via `npm install --global soniaseuc/LIM012-fe-md-links`
 
 ### `README.md`
 
@@ -53,12 +53,12 @@ Necesidad del usuario:
 El ejecutable de la aplicación se ejecuta de la siguiente
 manera a través de la terminal:
 
-`node ./src/cli.js <path-to-file> [options]`
+`md-links <path-to-file> [options]`
 
 Por ejemplo:
 
 ```sh
-$ node ./src/cli.js ./some/example.md
+$ md-links ./some/example.md
 ./some/example.md http://algo.com/2/3/ Link a algo
 ./some/example.md https://otra-cosa.net/algun-doc.html algún doc
 ./some/example.md http://google.com/ Google
@@ -75,7 +75,7 @@ URL que responde ok, entonces consideraremos el link como ok.
 Por ejemplo:
 
 ```sh
-$ node ./src/cli.js ./some/example.md --validate
+$ md-links ./some/example.md --validate
 ./some/example.md http://algo.com/2/3/ ok 200 Link a algo
 ./some/example.md https://otra-cosa.net/algun-doc.html fail 404 algún doc
 ./some/example.md http://google.com/ ok 301 Google
@@ -87,7 +87,7 @@ Si pasamos la opción `--stats` el output (salida) será un texto con estadísti
 básicas sobre los links.
 
 ```sh
-$ node ./src/cli.js ./some/example.md --stats
+$ md-links ./some/example.md --stats
 Total: 3
 Unique: 3
 ```
@@ -96,7 +96,7 @@ También podemos combinar `--stats` y `--validate` para obtener estadísticas qu
 necesiten de los resultados de la validación.
 
 ```sh
-$ node ./src/cli.js ./some/example.md --stats --validate
+$ md-links ./some/example.md --stats --validate
 Total: 3
 Unique: 3
 Broken: 1
@@ -135,18 +135,3 @@ Broken: 1
 - [ ] Linting
 
 ***
-
-#### ¿Cómo hago para que mi módulo sea _instalable_ desde GitHub?
-
-Para que el módulo sea instalable desde GitHub solo tiene que:
-
-- Estar en un repo público de GitHub
-- Contener un `package.json` válido
-
-Con el comando `npm install githubname/reponame` podemos instalar directamente
-desde GitHub. Ver [docs oficiales de `npm install` acá](https://docs.npmjs.com/cli/install).
-
-Por ejemplo, el [`course-parser`](https://github.com/Laboratoria/course-parser)
-que usamos para la currícula no está publicado en el registro público de NPM,
-así que lo instalamos directamente desde GitHub con el comando `npm install
-Laboratoria/course-parser`.
