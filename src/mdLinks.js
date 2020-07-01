@@ -5,10 +5,8 @@ const { fs } = require('./main.js');
 const api = (links, options) => new Promise((resolve, reject) => {
   const apiFc = mdLinkFc.allFunctionObj;
   const absolutePath = apiFc.absolutePath(links);
-  const arrayGetAllFiles = apiFc.getAllFilesArr(absolutePath);
-  const flatArrMdFile = arrayGetAllFiles.flat();
-  const readInsideMdFiles = apiFc.readArrayMdExtension(flatArrMdFile);
-  // console.log(readInsideMdFiles);
+  const arrayGetAllFiles = apiFc.getAllFilesArr(absolutePath).flat();
+  const readInsideMdFiles = apiFc.readArrayMdExtension(arrayGetAllFiles);
   if (fs.existsSync(absolutePath)) {
     if (options !== undefined) {
       if (options.validate) {
