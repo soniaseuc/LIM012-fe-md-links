@@ -32,7 +32,8 @@ if (statsFlag) {
   api(route, { validate })
     .then((res) => {
       res.forEach((element) => {
-        const result = `${element.file} ${element.href} ${element.statusText} ${element.status} ${element.text}`;
+        const result = `
+${element.file} ${element.href}  ${element.text}  ${element.statusText}   ${element.status}`;
         return console.log(result);
       });
     });
@@ -40,7 +41,7 @@ if (statsFlag) {
   api(route)
     .then((res) => {
       res.forEach((element) => {
-        const result = `${element.file} ${element.href} ${element.text}`;
+        const result = `${element.file}  ${element.href}     ${element.text}`;
         return console.log(result);
       });
     });

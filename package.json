@@ -1,8 +1,8 @@
 {
-  "name": "LIM012-fe-md-links",
+  "name": "md-links",
   "version": "1.0.0",
   "description": "**libreria que verifica links dentro de archivos.md**",
-  "main": "src/cli.js",
+  "main": "./src/cli.js",
   "scripts": {
     "test": "jest --verbose --coverage",
     "start": "node ./src/cli.js"
@@ -15,7 +15,8 @@
     "npm",
     "markdown",
     "marked",
-    "node-fetch"
+    "node-fetch",
+    "node"
   ],
   "author": {
     "name": "sonia seuc",
@@ -40,8 +41,7 @@
     "jest": "^26.1.0"
   },
   "dependencies": {
-    "marked": "^1.1.0",
-    "node-fetch": "^2.6.0",
-    "semver": "^7.3.2"
+      "marked": "^1.1.0",
+    "node-fetch": "^2.6.0"
   }
 }

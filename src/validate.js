@@ -48,29 +48,3 @@ module.exports = {
   stats,
   statsValidate,
 };
-
-// const example = ['https://es.wikipedia.org/wiki/Markdown',
-//   'http://www.google.com', 'https://developers.google.com/v8/',
-//   'https://www.w3schools.com/', 'https://developers.google.com/v8/',
-//   'https://github/ssssss'];
-
-// const ex = [
-//   {
-//     href: 'https://github.com/merunga/pildora-recursion',
-//     text: 'Pill de recursión - repositorio',
-//     file: '/home/mina/Documents/LIM012-fe-md-links/README.md',
-//     status: 200,
-//     statusText: 'OK',
-//   },
-//   {
-//     href: 'https://github.com/',
-//     text: 'Pill de recursión - repositorio',
-//     file: '/home/mina/Documents/LIM012-fe-md-links/README.md',
-//     status: 404,
-//     statusText: 'fail',
-//   },
-// ];
-
-// stats(example);
-
-// statsValidate(ex);
