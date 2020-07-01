@@ -13,7 +13,7 @@ const valid = [
     text: 'Link de youtube',
     file: '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md',
     status: 'unknown',
-    statusText: 'Only absolute URLs are supported',
+    statusText: 'error',
   },
   {
     href: 'https://www.google.com',

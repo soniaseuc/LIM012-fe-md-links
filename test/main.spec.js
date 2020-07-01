@@ -25,6 +25,9 @@ describe('a given path is resolve to absolute', () => {
   it('should resolve to absolute when path is relative', () => {
     expect(main.allFunctionObj.absolutePath(relative)).toBe(absolute);
   });
+  it('should resolve to absolute when path is already absolute', () => {
+    expect(main.allFunctionObj.absolutePath(absolute)).toBe(absolute);
+  });
 });
 
 describe('if the file has the extension .md', () => {
@@ -33,6 +36,9 @@ describe('if the file has the extension .md', () => {
   });
   it('should return a boolean (true) if the file has the .md extension', () => {
     expect(main.pathExtname('./test/prueba.md')).toBe(true);
+  });
+  it('should return a boolean (false) if the file does not has the .md extension', () => {
+    expect(main.pathExtname('./test/prueba.js')).toBe(false);
   });
 });
 
@@ -43,6 +49,9 @@ describe('path is a file', () => {
   it('should return a boolean (true) if the path is a file', () => {
     expect(main.allFunctionObj.fileIs('./README.md')).toBe(true);
   });
+  it('should return a boolean (false) if the path is not a file', () => {
+    expect(main.allFunctionObj.fileIs('./test')).toBe(false);
+  });
 });
 
 describe('path is a directory', () => {
@@ -52,18 +61,20 @@ describe('path is a directory', () => {
   it('should return a boolean (true) if the path is a directory', () => {
     expect(main.allFunctionObj.isDirectory('test')).toBe(true);
   });
+  it('should return a boolean (false) if the path is not a directory', () => {
+    expect(main.allFunctionObj.isDirectory('test/tryOutReadme.md')).toBe(false);
+  });
 });
 
-// const getFilesMd = [
-//   '/home/mina/Documents/LIM012-fe-md-links/test/prueba/readme.md',
-//   '/home/mina/Documents/LIM012-fe-md-links/test/prueba/try.md',
-// ];
 describe('get all the files with md. extension stored in an array', () => {
   test('should be a function', () => {
     expect(typeof main.allFunctionObj.getAllFilesArr).toBe('function');
   });
   it('should return the .md file', () => {
     expect(main.allFunctionObj.getAllFilesArr('/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md')[0]).toBe('/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md');
+  });
+  it('Debería retornar el file md de un subdirectorio', () => {
+    expect(main.allFunctionObj.getAllFilesArr('./test/prueba/carpetaDos/carpetaTres')).toEqual([['test/prueba/carpetaDos/carpetaTres/fileCuarto.md']]);
   });
 });
 
@@ -83,12 +94,3 @@ describe('read the links inside the md file', () => {
 });
 
 // readArrayMdExtension
-
-// describe('formatLinks formats link info into object with three properties', () => {
-//   test('Returns an empty array if empty array passed', () => {
-//     expect(utilityFunctions.formatLinks([], mock.emptyFile)).toEqual([]);
-//   });
-//   test('Returns an array of objects with href, text, and file properties', () => {
-//     expect(utilityFunctions.formatLinks(mock.rawLinks, mock.absPath)).toEqual(mock.formattedLinks);
-//   });
-// });

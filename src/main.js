@@ -75,7 +75,7 @@ const allFunctionObj = {
       fs.readdirSync(route).forEach((file) => {
         const filepath = path.join(route, file);
         const filePushInArr = fs.statSync(route)
-          .isFile() ? arrayFiles.push(route) : allFunctionObj.getAllFilesArr(filepath);
+          .isFile() ? arrayFiles.push(route).flat() : allFunctionObj.getAllFilesArr(filepath);
         arrayFiles.push(filePushInArr.flat());
       });
     }

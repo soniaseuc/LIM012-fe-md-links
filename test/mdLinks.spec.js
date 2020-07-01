@@ -66,4 +66,10 @@ describe('a function that search for .md files and read links inside the files',
       expect(response).toEqual(whenValid);
       done();
     }));
+  it('should return an array of objects where each object represents a link', () => {
+    expect.assertions(1);
+    return api.api('test/tryOutReadme.md', { }).then((response) => {
+      expect(response).toEqual(validFalse);
+    });
+  });
 });

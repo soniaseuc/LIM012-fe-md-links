@@ -16,7 +16,10 @@ const api = (links, options) => new Promise((resolve, reject) => {
           .then((status) => {
             resolve(status);
           })
-          .catch((err) => reject(err));
+          .catch((err) => {
+            // console.log(err.message);
+            reject(err);
+          });
       } else {
         resolve(readInsideMdFiles);
       }
