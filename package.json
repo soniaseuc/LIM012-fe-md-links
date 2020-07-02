@@ -1,5 +1,5 @@
 {
-  "name": "md-links",
+  "name": "LIM012-fe-md-links",
   "version": "1.0.0",
   "description": "**libreria que verifica links dentro de archivos.md**",
   "main": "./src/cli.js",
