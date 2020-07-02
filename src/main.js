@@ -71,9 +71,10 @@ const allFunctionObj = {
         const filePushInArr = fs.statSync(route)
           .isFile() ? arrayFiles.push(route).flat() : allFunctionObj.getAllFilesArr(filepath);
         arrayFiles.push(filePushInArr.flat());
+        // console.log(`filePushInArr: ${filePushInArr}`);
       });
     }
-    // console.log(arrayFiles);
+    // console.log(`arrayFiles: ${arrayFiles}`);
     return arrayFiles;
   },
 
@@ -109,11 +110,13 @@ const allFunctionObj = {
     return linksArr.flat();
   },
 
-  readArrayMdExtension: (ArrayMd) => {
+  readArrayMdExtension: (pathMdFiles) => {
+    const arrPathMdFile = pathMdFiles;
     const fileslinkArr = [];
-    ArrayMd.forEach((filePath) => {
+    arrPathMdFile.forEach((filePath) => {
       fileslinkArr.push(allFunctionObj.readLinksInsideFiles(filePath));
     });
+    // console.log(fileslinkArr);
     return fileslinkArr.flat();
   },
 
@@ -121,7 +124,8 @@ const allFunctionObj = {
 
 // The fs.readdirSync() method is used to synchronously read the contents of a given directory
 // The method returns an array with all the file names or objects in the directory
-// The options argument can be used to change the format in which the files are returned from the method
+// The options argument can be used to change the format in which the files are returned from the
+// method
 
 // Syntax:
 

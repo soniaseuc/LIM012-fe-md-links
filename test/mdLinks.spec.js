@@ -61,6 +61,9 @@ describe('a function that search for .md files and read links inside the files',
   it('should return the links not validated (only 3 properties)', () => {
     expect(api.api('./test/tryOutReadme.md')).resolves.toEqual(validFalse);
   });
+  it('La ruta no existe', () => {
+    expect(api.api('./test/tryOutReadm.md')).resolves.toEqual('La ruta no existe');
+  });
   it('should validate the links and present 5 properties', (done) => api.api('./test/tryOutReadme.md', { validate: true })
     .then((response) => {
       expect(response).toEqual(whenValid);
@@ -73,3 +76,7 @@ describe('a function that search for .md files and read links inside the files',
     });
   });
 });
+
+// expect.assertions(number) verifies that a certain number of assertions are called during a test
+// This is often useful when testing asynchronous code,
+// in order to make sure that assertions in a callback actually got called.

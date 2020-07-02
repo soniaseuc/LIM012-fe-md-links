@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const process = require('process');
-// const { argv } = require('process');
+
 const {
   api,
 } = require('./mdLinks.js');
@@ -17,10 +17,9 @@ const {
 
 const route = process.argv[2];
 const myArgs = process.argv.slice(2);
-// console.log(myArgs.includes('--validate')); //booleano
+
 const validate = myArgs.includes('--validate'); // booloeano
 const statsFlag = myArgs.includes('--stats'); // boolean
-// console.log(statsFlag);
 
 if (statsFlag) {
   api(route, { validate })
@@ -39,9 +38,9 @@ ${element.file} ${element.href}  ${element.text}  ${element.statusText}   ${elem
     });
 } else {
   api(route)
-    .then((res) => {
-      res.forEach((element) => {
-        const result = `${element.file}  ${element.href}     ${element.text}`;
+    .then((response) => {
+      response.forEach((link) => {
+        const result = `${link.file}  ${link.href}     ${link.text}`;
         return console.log(result);
       });
     });

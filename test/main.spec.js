@@ -51,6 +51,9 @@ describe('path is a directory', () => {
   });
 });
 
+const arrayMd = [['test/prueba/carpetaDos/carpetaTres/fileCuarto.md'],
+  ['test/prueba/carpetaDos/fileTercergrado.md'], []];
+
 describe('get all the files with md. extension stored in an array', () => {
   test('should be a function', () => {
     expect(typeof main.allFunctionObj.getAllFilesArr).toBe('function');
@@ -58,8 +61,37 @@ describe('get all the files with md. extension stored in an array', () => {
   it('should return the .md file', () => {
     expect(main.allFunctionObj.getAllFilesArr('/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md')[0]).toBe('/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md');
   });
-  it('Debería retornar el file md de un subdirectorio', () => {
+  it('should return the md. files inside a directory', () => {
     expect(main.allFunctionObj.getAllFilesArr('./test/prueba/carpetaDos/carpetaTres')).toEqual([['test/prueba/carpetaDos/carpetaTres/fileCuarto.md']]);
+  });
+  it('should return an array with the .md files inside a subdirectory', () => {
+    expect(main.allFunctionObj.getAllFilesArr('./test/prueba/carpetaDos')).toEqual(arrayMd);
+  });
+});
+
+const pathIsDirGetLinksObj = [
+  {
+    file: '/home/mina/Documents/LIM012-fe-md-links/test/prueba/carpetaDos/carpetaTres/fileCuarto.md',
+    href: 'drive.google.com',
+    text: 'sitio google drive',
+
+  },
+  {
+    file: '/home/mina/Documents/LIM012-fe-md-links/test/prueba/carpetaDos/carpetaTres/fileCuarto.md',
+    href: 'https://nodejs.org/',
+    text: 'Node.js',
+
+  },
+];
+
+const arrPathMdFile = ['/home/mina/Documents/LIM012-fe-md-links/test/prueba/carpetaDos/carpetaTres/fileCuarto.md'];
+
+describe('read the array with the files with .md extensions', () => {
+  test('should be a function', () => {
+    expect(typeof main.allFunctionObj.readArrayMdExtension).toBe('function');
+  });
+  it('should return a array of objects containing the .md files', () => {
+    expect(main.allFunctionObj.readArrayMdExtension(arrPathMdFile)).toEqual(pathIsDirGetLinksObj);
   });
 });
 
@@ -77,5 +109,3 @@ describe('read the links inside the md file', () => {
     expect(main.allFunctionObj.readLinksInsideFiles('/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md')[0].file).toBe('/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md');
   });
 });
-
-// readArrayMdExtension

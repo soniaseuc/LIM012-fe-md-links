@@ -22,10 +22,10 @@ const validate = (linksArrObj) => {
   return Promise.all(arrPromis);
 };
 
-const stats = (arrayLinks) => {
+const stats = (arrayObjLinks) => {
   const totalLinks = [];
-  arrayLinks.forEach((link) => totalLinks.push(link.href));
-  const LinkUnique = new Set(arrayLinks.map((element) => element.href));
+  arrayObjLinks.forEach((link) => totalLinks.push(link.href));
+  const LinkUnique = new Set(arrayObjLinks.map((element) => element.href));
   const totalUnique = `
   Total : ${totalLinks.length}
   Unique: ${LinkUnique.size}`;
@@ -48,3 +48,33 @@ module.exports = {
   stats,
   statsValidate,
 };
+
+/* El método Promise.all(iterable) */
+// devuelve una promesa que termina correctamente cuando todas las promesas en el argumento iterable
+// han sido concluídas con éxito,o bien rechaza la petición con el motivo pasado por la primera
+// promesa que es rechazada
+
+// Sintaxis
+// Promise.all(iterable);
+
+// iterable
+//     Un objeto iterable, por ejemplo un Array. Vea iterable.
+
+// Valor devuelto
+// Una Promise que se cumplirá cuando all las promesas del argumento iterable hayan sido cumplidas,
+// o bien se rechazará cuando alguna de ellas se rechace.
+
+/* El objeto Set */
+//  permite almacenar valores únicos de cualquier tipo, incluso valores primitivos u referencias a
+// objetos.
+
+//  Sintaxis
+// new Set([iterable]);
+
+// Parámetros
+// iterable
+// Si un objeto iterable es pasado, todos sus elementos serán añadidos al nuevo Set.
+// Si no se especifica este parámetro, o si su valor es null, el nuevo Set estará vacío.
+
+// Valor retornado
+// Una nueva instancia de Set.
