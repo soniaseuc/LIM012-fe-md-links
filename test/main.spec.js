@@ -1,19 +1,4 @@
 const main = require('../src/main.js');
-// const mock = require('../__Mock__/mock.js');
-
-// describe('suma', () => {
-//   it('is a function', () => {
-//     expect(typeof main.suma).toBe('function');
-//   });
-//   test('sumar 1 + 2 es igual a 3', () => {
-//     expect(main.suma(1, 2)).toBe(3);
-//   });
-// });
-
-// test('should sum two numbers', () => {
-//   const result = 3 + 2;
-//   expect(result).toBe(5);
-// });
 
 const absolute = '/home/mina/Documents/LIM012-fe-md-links/test';
 const relative = 'test';
@@ -56,13 +41,13 @@ describe('path is a file', () => {
 
 describe('path is a directory', () => {
   test('should be a function', () => {
-    expect(typeof main.allFunctionObj.isDirectory).toBe('function');
+    expect(typeof main.allFunctionObj.isDir).toBe('function');
   });
   it('should return a boolean (true) if the path is a directory', () => {
-    expect(main.allFunctionObj.isDirectory('test')).toBe(true);
+    expect(main.allFunctionObj.isDir('test')).toBe(true);
   });
   it('should return a boolean (false) if the path is not a directory', () => {
-    expect(main.allFunctionObj.isDirectory('test/tryOutReadme.md')).toBe(false);
+    expect(main.allFunctionObj.isDir('test/tryOutReadme.md')).toBe(false);
   });
 });
 
