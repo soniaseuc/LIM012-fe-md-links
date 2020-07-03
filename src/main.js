@@ -71,24 +71,10 @@ const allFunctionObj = {
         const filePushInArr = fs.statSync(route)
           .isFile() ? arrayFiles.push(route).flat() : allFunctionObj.getAllFilesArr(filepath);
         arrayFiles.push(filePushInArr.flat());
-        // console.log(`filePushInArr: ${filePushInArr}`);
       });
     }
-    // console.log(`arrayFiles: ${arrayFiles}`);
     return arrayFiles;
   },
-
-  // mdExtensionDir: (route) => {
-  //   // Function to get current filenames in directory with specific extension
-  //   const files = fs.readdirSync(route);
-  //   const arrayFileNameMd = [];
-  //   files.forEach((file) => {
-  //     if (pathExtname(file) === true) {
-  //       arrayFileNameMd.push(file);
-  //     }
-  //   });
-  //   return arrayFileNameMd;
-  // },
 
   //  The fs.readFile() method is used to read files on your computer
   // fs.readFile();
@@ -120,6 +106,17 @@ const allFunctionObj = {
     return fileslinkArr.flat();
   },
 
+  // mdExtensionDir: (route) => {
+  //   // Function to get current filenames in directory with specific extension
+  //   const files = fs.readdirSync(route);
+  //   const arrayFileNameMd = [];
+  //   files.forEach((file) => {
+  //     if (pathExtname(file) === true) {
+  //       arrayFileNameMd.push(file);
+  //     }
+  //   });
+  //   return arrayFileNameMd;
+  // },
 };
 
 // The fs.readdirSync() method is used to synchronously read the contents of a given directory
