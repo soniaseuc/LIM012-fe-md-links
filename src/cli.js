@@ -11,6 +11,7 @@ const {
   stats,
 } = require('./validate.js');
 
+const colors = require('colors');
 // Grab provided args
 // const [,, ...args] = process.argv;
 // console.log(`Hello ${args}`);
@@ -31,8 +32,7 @@ if (statsFlag) {
   api(route, { validate })
     .then((res) => {
       res.forEach((element) => {
-        const result = `
-${element.file} ${element.href}  ${element.text}  ${element.statusText}   ${element.status}`;
+        const result = `${element.file} ${element.href} ${element.text} ${element.statusText.yellow} ${element.status}`;
         return console.log(result);
       });
     });
@@ -40,7 +40,7 @@ ${element.file} ${element.href}  ${element.text}  ${element.statusText}   ${elem
   api(route)
     .then((response) => {
       response.forEach((link) => {
-        const result = `${link.file}  ${link.href}     ${link.text}`;
+        const result = `${link.file} ${link.href} ${link.text.green}`;
         return console.log(result);
       });
     });

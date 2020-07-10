@@ -41,7 +41,8 @@
     "jest": "^26.1.0"
   },
   "dependencies": {
-      "marked": "^1.1.0",
+    "colors": "^1.4.0",
+    "marked": "^1.1.0",
     "node-fetch": "^2.6.0"
   }
 }

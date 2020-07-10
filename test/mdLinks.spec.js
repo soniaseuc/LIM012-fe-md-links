@@ -4,28 +4,28 @@ const whenValid = [
   {
     href: 'https://www.google.com',
     text: 'Inicio de GOOGLE',
-    file: '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md',
+    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md',
     status: 200,
     statusText: 'OK',
   },
   {
     href: 'www.youtube.com',
     text: 'Link de youtube',
-    file: '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md',
-    status: 'unknown',
+    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md',
+    status: '404',
     statusText: 'error',
   },
   {
     href: 'https://www.google.com',
     text: 'Inicio de GOOGLE',
-    file: '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md',
+    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md',
     status: 200,
     statusText: 'OK',
   },
   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'Markdown',
-    file: '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md',
+    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md',
     status: 200,
     statusText: 'OK',
   },
@@ -35,22 +35,22 @@ const validFalse = [
   {
     href: 'https://www.google.com',
     text: 'Inicio de GOOGLE',
-    file: '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md',
+    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md',
   },
   {
     href: 'www.youtube.com',
     text: 'Link de youtube',
-    file: '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md',
+    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md',
   },
   {
     href: 'https://www.google.com',
     text: 'Inicio de GOOGLE',
-    file: '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md',
+    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md',
   },
   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'Markdown',
-    file: '/home/mina/Documents/LIM012-fe-md-links/test/tryOutReadme.md',
+    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md',
   },
 ];
 

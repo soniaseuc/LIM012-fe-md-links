@@ -14,7 +14,7 @@ const validate = (linksArrObj) => {
         return linksObj;
       })
       .catch((err) => {
-        linksObj.status = err.status ? err.status : 'unknown';
+        linksObj.status = err.status ? err.status : '404';
         linksObj.statusText = err.message ? err.message : 'Fail';
         return linksObj;
       });

@@ -1,5 +1,5 @@
 TN:
-SF:src/main.js
+SF:src\main.js
 FN:17,(anonymous_0)
 FN:28,(anonymous_1)
 FN:50,(anonymous_2)
@@ -78,7 +78,7 @@ BRF:8
 BRH:7
 end_of_record
 TN:
-SF:src/mdLinks.js
+SF:src\mdLinks.js
 FN:5,(anonymous_0)
 FN:5,(anonymous_1)
 FN:14,(anonymous_2)
@@ -119,7 +119,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:src/validate.js
+SF:src\validate.js
 FN:3,(anonymous_0)
 FN:5,(anonymous_1)
 FN:9,(anonymous_2)
