@@ -1,6 +1,6 @@
 const main = require('../src/main.js');
 
-const absolute = 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test';
+const absolute = 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\test';
 const relative = 'test';
 
 describe('a given path is resolve to absolute', () => {
@@ -59,7 +59,7 @@ describe('get all the files with md. extension stored in an array', () => {
     expect(typeof main.allFunctionObj.getAllFilesArr).toBe('function');
   });
   it('should return the .md file', () => {
-    expect(main.allFunctionObj.getAllFilesArr('C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md')[0]).toBe('C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md');
+    expect(main.allFunctionObj.getAllFilesArr('C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\test\\tryOutReadme.md')[0]).toBe('C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\test\\tryOutReadme.md');
   });
   it('should return the md. files inside a directory', () => {
     expect(main.allFunctionObj.getAllFilesArr('./test/prueba/carpetaDos/carpetaTres')).toEqual([['test\\prueba\\carpetaDos\\carpetaTres\\fileCuarto.md']]);
@@ -71,20 +71,20 @@ describe('get all the files with md. extension stored in an array', () => {
 
 const pathIsDirGetLinksObj = [
   {
-    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\prueba\\carpetaDos\\carpetaTres\\fileCuarto.md',
+    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\test\\prueba\\carpetaDos\\carpetaTres\\fileCuarto.md',
     href: 'drive.google.com',
     text: 'sitio google drive',
 
   },
   {
-    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\prueba\\carpetaDos\\carpetaTres\\fileCuarto.md',
+    file: 'C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\test\\prueba\\carpetaDos\\carpetaTres\\fileCuarto.md',
     href: 'https://nodejs.org/',
     text: 'Node.js',
 
   },
 ];
 
-const arrPathMdFile = ['C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\prueba\\carpetaDos\\carpetaTres\\fileCuarto.md'];
+const arrPathMdFile = ['C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\test\\prueba\\carpetaDos\\carpetaTres\\fileCuarto.md'];
 
 describe('read the array with the files with .md extensions', () => {
   test('should be a function', () => {
@@ -106,6 +106,6 @@ describe('read the links inside the md file', () => {
     expect(main.allFunctionObj.readLinksInsideFiles('./test/tryOutReadme.md')[0].text).toBe('Inicio de GOOGLE');
   });
   it('should return the file path for the .md file', () => {
-    expect(main.allFunctionObj.readLinksInsideFiles('C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md')[0].file).toBe('C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\LIM012-fe-md-links\\test\\tryOutReadme.md');
+    expect(main.allFunctionObj.readLinksInsideFiles('C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\test\\tryOutReadme.md')[0].file).toBe('C:\\Users\\sonia\\OneDrive\\Documentos\\Javascript\\FRONT END\\LIM012-fe-md-links\\test\\tryOutReadme.md');
   });
 });
